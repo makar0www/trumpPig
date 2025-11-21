@@ -11,7 +11,7 @@ const HeroSection = () => {
         alt="Oval office background"
         className={styles.background}
       />
-
+ 
       <div className={styles.overlay}>
         <h1 className={styles.title}>
           <span className={styles.titleAccent}>QUIET PIGGY</span>

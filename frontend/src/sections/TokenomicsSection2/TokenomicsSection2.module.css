@@ -1,0 +1,97 @@
+/* Вся секция — один экран, центрируем содержимое */
+.tokenomics {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	color: #ffffff;
+
+	display: flex;
+	align-items: center;
+	/* по вертикали по центру */
+	justify-content: center;
+	/* по горизонтали по центру */
+}
+
+/* Внутренний контейнер */
+.overlay {
+	position: relative;
+	z-index: 1;
+
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 4rem 1.5rem;
+	/* только внутренние отступы, без влияния на центровку */
+
+	display: flex;
+	align-items: center;
+	/* чтобы midRow был по центру по высоте overlay */
+	justify-content: center;
+	/* и по горизонтали */
+}
+
+/* Центральная строка: слева картинка, справа текст */
+.midRow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3rem;
+	flex-direction: row-reverse;
+	/* персонаж слева, текст справа */
+}
+
+.textBlock {
+	text-align: left;
+	/* чтобы текст был ближе к центру */
+}
+
+/* Строки текста */
+.item {
+	font-size: 1.4rem;
+	font-weight: 700;
+	margin-bottom: 0.7rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+/* Персонаж слева */
+.character {
+	max-width: 260px;
+	filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.9));
+	animation: piggyFloat 6s ease-in-out infinite;
+}
+
+/* Анимация */
+@keyframes piggyFloat {
+
+	0%,
+	50%,
+	100% {
+		transform: translateY(4%);
+	}
+
+	25% {
+		transform: translateY(0%);
+	}
+
+	75% {
+		transform: translateY(8%);
+	}
+}
+
+/* Адаптив: на мобилках кладём в колонку и центрируем всё */
+@media (max-width: 768px) {
+	.overlay {
+		padding: 3rem 1rem 4rem;
+	}
+
+	.midRow {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.textBlock {
+		text-align: center;
+	}
+}
