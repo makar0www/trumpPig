@@ -1,0 +1,132 @@
+.hero {
+	position: relative;
+	min-height: 100vh;
+	/* секция на всю высоту экрана */
+	width: 100%;
+	overflow: hidden;
+	color: #ffffff;
+	border-radius: 32px;
+	/* закруглённые углы по всему блоку */
+
+}
+
+/* фон – кабинет, растянутый на весь экран */
+.background {
+	position: absolute;
+	inset: 0;
+	/* top:0; right:0; bottom:0; left:0 */
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* заполняем блок, обрезая лишнее */
+
+	/* лёгкий блюр */
+	filter: blur(3px);
+	
+	/* чуть увеличиваем, чтобы не было размытых краёв по периметру */
+	transform: scale(1.03);
+}
+
+/* слой с контентом поверх фона */
+.overlay {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 5rem 1.5rem 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* центр по вертикали */
+	text-align: center;
+}
+
+/* QUIET PIGGY */
+.title {
+	position: absolute;
+	top: 20%;
+	/* регулируешь высоту надписи отсюда */
+	left: 50%;
+	transform: translateX(-50%);
+
+	font-size: clamp(3rem, 6vw, 5rem);
+	font-weight: 900;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-shadow: 0 0 14px rgba(0, 0, 0, 0.9);
+
+	animation: titleSwing 3s ease-in-out infinite;
+}
+
+
+.titleAccent {
+	white-space: nowrap;
+	display: inline-block;
+	/* чтобы трансформации нормально работали */
+	font-size: 1.3em;
+	/* 1em = как у .title, 1.3em = на 30% больше */
+}
+
+/* персонаж поверх стола */
+.character {
+	max-width: 470px;
+		/* УВЕЛИЧЬ реально это число */
+		width: 60vw;
+	filter: drop-shadow(0 18px 45px rgba(0, 0, 0, 0.9));
+
+	/* анимация лёгкого движения вверх-вниз */
+	animation: piggyFloat 6s ease-in-out infinite;
+}
+
+/* @media (min-width: 1024px) {
+	.character {
+		max-width: 380px;
+	}
+} */
+
+@keyframes titleSwing {
+
+	0%,
+	100% {
+		transform: translateX(-50%) rotate(0deg);
+		/* центр */
+	}
+
+	25% {
+		transform: translateX(-54%) rotate(-3deg);
+		/* чуть влево */
+	}
+
+	50% {
+		transform: translateX(-50%) rotate(0deg);
+		/* обратно в центр */
+	}
+
+	75% {
+		transform: translateX(-46%) rotate(3deg);
+		/* чуть вправо */
+	}
+}
+
+@keyframes piggyFloat {
+
+	/* центр */
+	0%,
+	50%,
+	100% {
+		transform: translateY(16%);
+	}
+
+	/* выше */
+	25% {
+		transform: translateY(12%);
+	}
+
+	/* ниже */
+	75% {
+		transform: translateY(20%);
+	}
+}
+

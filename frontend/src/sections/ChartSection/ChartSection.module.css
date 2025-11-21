@@ -1,0 +1,65 @@
+.chartSection {
+	position: relative;
+	width: 100%;
+	color: #ffffff;
+}
+
+/* Контейнер секции по центру */
+.overlay {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 4rem 1.5rem 5rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+/* Заголовок CHART */
+.title {
+	font-size: clamp(2rem, 3.5vw, 2.6rem);
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-align: center;
+	text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Внешняя рамка вокруг графика */
+.frame {
+	width: 100%;
+	max-width: 1000px;
+
+	padding: 0.75rem;
+	border-radius: 28px;
+
+	background: rgba(0, 0, 0, 0.7);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+}
+
+/* Сам iframe (мы используем класс placeholder для него) */
+.placeholder {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border-radius: 20px;
+	border: none;
+	display: block;
+}
+
+/* Чуть компактнее на мобилках */
+@media (max-width: 768px) {
+	.overlay {
+		padding: 3rem 1rem 4rem;
+	}
+
+	.frame {
+		padding: 0.5rem;
+		border-radius: 20px;
+	}
+
+	.placeholder {
+		border-radius: 16px;
+	}
+}
